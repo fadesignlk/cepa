@@ -323,6 +323,33 @@ button.navbar-toggler:focus {
 #publication {
     padding: var(--spacing-mxl) 0;
     background: var(--color-background-alt);
+
+    .card{
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        
+        .card-img-overlay{
+            display: none;
+            border-radius: var(--border-radius-lg);
+            transition: all var(--transition);
+
+                h6{
+                    font-size: 18px;
+                    color: var(--color-white);
+                }
+            }
+
+        &:hover{
+             .card-img-overlay{
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                background: rgba(0, 0, 0, 0.7);
+            }      
+        }
+    }
+    
     
     img{
         object-fit: cover;
@@ -330,9 +357,69 @@ button.navbar-toggler:focus {
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: var(--border-radius-lg);
-        height: 320px;
+        height: 420px;
         width: 100%;
         cursor: pointer;
+    }
+}
+
+/* Blog */
+#blog {
+    padding: var(--spacing-mxl) 0;  
+
+        .img-container { /* Add a container element in your HTML */
+        width: 100%;
+        height: 320px;
+        overflow: hidden; /* Crucial: Hides the scaled image overflow */
+        border-radius: var(--border-radius-lg); /* Apply border-radius to the container */
+    }
+
+    .img-container img { /* Target the img *inside* the container */
+        object-fit: cover;
+        background-position: center top; /* These background properties won't have an effect on an <img> tag */
+        border-radius: inherit; /* Inherit border-radius from the container */
+        height: 100%; /* Make the image fill the container */
+        width: 100%; /* Make the image fill the container */
+        cursor: pointer;
+        transition: transform var(--transition); /* Add transition here for smooth scaling */
+    }
+
+    .img-container img:hover {
+        transform: scale(1.1) rotate(-5deg); /* Scale to 110% and rotate by 5 degrees */
+    }
+    
+    .blog-body{
+        padding: var(--spacing-lg) 0;
+
+        h6{
+            font-size: 1.3rem;
+        }
+    }
+
+    .btn-cepa{
+        background-color: transparent;
+        color: var(--color-text);
+        border: 1px solid var(--color-text);
+        font-weight: 600;
+        padding: var(--spacing-sm)  var(--spacing-lg);
+        border-radius: var(--border-radius-xl);
+        transition: background-color var(--transition) ;
+
+        &:hover, &:focus, &:active{
+            background-color: var(--color-primary-light) !important;
+            color: var(--color-white) !important;
+            border: 1px solid var(--color-primary-light) !important;
+        }
+    }
+    
+    img{
+        object-fit: cover;
+        background-position: center top;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: var(--border-radius-lg);
+        height: 250px;
+        width: 100%;
     }
 }
 
